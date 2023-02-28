@@ -2,22 +2,37 @@
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
-.mainDiv {
+body {
+    margin: 0;
+    max-height: 100vh;
+
+}
+
+main {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    width: 100%;
+
+}
+
+#mainDiv {
+    display: flex;
+    flex-direction: column;
+
+
+    max-width: 960px;
+
 }
 
 .vertDiv {
+    flex: 1 1 auto;
+
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;   
     
-    flex: 1 0 0;
 }
 
 .horiDiv {
-    flex: 1 1 0;
+    flex: 1 0 auto;
     
     aspect-ratio: 1/1;
 
