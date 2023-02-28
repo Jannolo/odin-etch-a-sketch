@@ -2,7 +2,7 @@ const main = document.querySelector('main');
 
 const mainDiv = document.createElement('div');
 mainDiv.classList.add('mainDiv');
- 
+
 const colorSelection = document.querySelector('#colorSelection');
 console.log(colorSelection);
 
@@ -22,40 +22,37 @@ colorSelection.appendChild(redButton);
 colorSelection.appendChild(blueButton);
 colorSelection.appendChild(greenButton);
 
-const newCanvas = document.querySelector('#newCanvas');
+makeCanvas(16);
 
-newCanvas.addEventListener('click', function () {
-    let numSquares = window.prompt('How many squares would you like to draw on?', '16');
-    makeCanvas(numSquares);
-})
+function makeCanvas(numSquares) {
+    mainDiv.innerHTML = '';
 
 
-function makeCanvas (numSquares) {
-mainDiv.innerHTML ='';
+    for (let i = 0; i < numSquares; i++) {
+        const vertDiv = document.createElement('div');
+        vertDiv.classList.add('vertDiv');
 
-for (let i = 0; i < numSquares; i++) {
-    const vertDiv = document.createElement('div');
-    vertDiv.classList.add('vertDiv');
-
-    for (let j = 0; j < numSquares; j++) {
-        const horiDiv = document.createElement('div');
-        horiDiv.classList.add('horiDiv');
-        vertDiv.appendChild(horiDiv);
+        for (let j = 0; j < numSquares; j++) {
+            const horiDiv = document.createElement('div');
+            horiDiv.classList.add('horiDiv');
+            vertDiv.appendChild(horiDiv);
+        }
+        mainDiv.appendChild(vertDiv);
     }
-    mainDiv.appendChild(vertDiv);
+
+    main.appendChild(mainDiv);
+
+    const squares = document.querySelectorAll('.horiDiv');
+
+    squares.forEach(square => {
+        square.addEventListener('mouseover', function (e) {
+            changeColor(square);
+        })
+    });
 }
 
-main.appendChild(mainDiv);
-}
 
 
-const squares = document.querySelectorAll('.horiDiv');
-
-squares.forEach(square => {
-    square.addEventListener('mouseover', function (e) {
-       changeColor(square); 
-    })
-});
 
 const buttons = document.querySelectorAll('button');
 
@@ -96,5 +93,22 @@ function changeColor(square) {
         default:
             square.classList.add('hovered-black');
     }
-   
+
 }
+
+const newCanvasButton = document.querySelector('#newCanvasButton');
+
+newCanvasButton.addEventListener('click', function () {
+    while (true) {
+        let numSquares = prompt("How many squares do you want?");
+        if (!Number.isInteger(parseInt(numSquares))) {
+            alert("Please submit an integer!");
+        } else if (numSquares > 100 || numSquares <= 0) {
+            alert("Please choose a number bigger than 0 and smaller/equal 100");
+        } else {
+            makeCanvas(numSquares);
+            break;
+        }
+    }
+
+})
