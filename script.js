@@ -1,5 +1,8 @@
-const mainDiv = document.querySelector('#mainDiv');
+const main = document.querySelector('main');
 
+const mainDiv = document.createElement('div');
+mainDiv.classList.add('mainDiv');
+ 
 const colorSelection = document.querySelector('#colorSelection');
 console.log(colorSelection);
 
@@ -30,6 +33,8 @@ for (let i = 0; i < 16; i++) {
     }
     mainDiv.appendChild(vertDiv);
 }
+
+main.appendChild(mainDiv);
 
 
 const squares = document.querySelectorAll('.horiDiv');
