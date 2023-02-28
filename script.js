@@ -72,6 +72,7 @@ function changeColor(square) {
             break;
         case 'green':
             square.classList.add('hovered-green');
+            break;
         default:
             square.classList.add('hovered-black');
     }
