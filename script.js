@@ -22,11 +22,22 @@ colorSelection.appendChild(redButton);
 colorSelection.appendChild(blueButton);
 colorSelection.appendChild(greenButton);
 
-for (let i = 0; i < 16; i++) {
+const newCanvas = document.querySelector('#newCanvas');
+
+newCanvas.addEventListener('click', function () {
+    let numSquares = window.prompt('How many squares would you like to draw on?', '16');
+    makeCanvas(numSquares);
+})
+
+
+function makeCanvas (numSquares) {
+mainDiv.innerHTML ='';
+
+for (let i = 0; i < numSquares; i++) {
     const vertDiv = document.createElement('div');
     vertDiv.classList.add('vertDiv');
 
-    for (let j = 0; j < 16; j++) {
+    for (let j = 0; j < numSquares; j++) {
         const horiDiv = document.createElement('div');
         horiDiv.classList.add('horiDiv');
         vertDiv.appendChild(horiDiv);
@@ -35,6 +46,7 @@ for (let i = 0; i < 16; i++) {
 }
 
 main.appendChild(mainDiv);
+}
 
 
 const squares = document.querySelectorAll('.horiDiv');
@@ -60,6 +72,8 @@ buttons.forEach(button => {
         }
     })
 })
+
+
 
 
 let color = 'black';
