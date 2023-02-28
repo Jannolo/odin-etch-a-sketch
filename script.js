@@ -80,6 +80,10 @@ function setColor(newColor) {
 }
 
 function changeColor(square) {
+    square.classList.remove('hovered-red');
+    square.classList.remove('hovered-blue');
+    square.classList.remove('hovered-green');
+    square.classList.remove('hovered-black');
     switch (color) {
         case 'red':
             square.classList.add('hovered-red');
