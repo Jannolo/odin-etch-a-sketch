@@ -95,10 +95,7 @@ function setColor(newColor) {
 }
 
 function changeColor(square) {
-    square.classList.remove('hovered-red');
-    square.classList.remove('hovered-blue');
-    square.classList.remove('hovered-green');
-    square.classList.remove('hovered-black');
+    clear(square);
     switch (color) {
         case 'red':
             square.classList.add('hovered-red');
@@ -138,9 +135,13 @@ function clearCanvas () {
     const squares = document.querySelectorAll('.horiDiv');
 
     squares.forEach(square => {
-        square.classList.remove('hovered-red');
+        clear(square);
+    });
+}
+
+function clear (square) {
+    square.classList.remove('hovered-red');
         square.classList.remove('hovered-blue');
         square.classList.remove('hovered-green');
         square.classList.remove('hovered-black');
-    });
 }
