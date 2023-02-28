@@ -39,11 +39,27 @@ squares.forEach(square => {
     })
 });
 
+const buttons = document.querySelectorAll('button');
+
+buttons.forEach(button => {
+    button.addEventListener('click', function () {
+        if (button.classList.contains('redButton')) {
+            setColor('red');
+        } else if (button.classList.contains('blueButton')) {
+            setColor('blue');
+        } else if (button.classList.contains('greenButton')) {
+            setColor('green');
+        } else {
+            setColor('black');
+        }
+    })
+})
+
 
 let color = 'black';
 
-function chooseColor() {
-
+function setColor(newColor) {
+    color = newColor;
 }
 
 function changeColor(square) {
