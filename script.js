@@ -18,9 +18,20 @@ const greenButton = document.createElement('button');
 greenButton.classList.add('greenButton');
 greenButton.textContent = 'Green';
 
+const eraseButton = document.createElement('button');
+eraseButton.classList.add('eraseButton');
+eraseButton.textContent = 'Erase';
+
+const clearButton = document.createElement('button');
+clearButton.classList.add('clearButton');
+clearButton.textContent = 'Clear';
+
+
 colorSelection.appendChild(redButton);
 colorSelection.appendChild(blueButton);
 colorSelection.appendChild(greenButton);
+colorSelection.appendChild(eraseButton);
+colorSelection.appendChild(clearButton);
 
 makeCanvas(16);
 
@@ -54,8 +65,8 @@ function makeCanvas(numSquares) {
 
 
 
-const buttons = document.querySelectorAll('button');
-
+const buttons = colorSelection.querySelectorAll('button');
+console.table(buttons);
 buttons.forEach(button => {
     button.addEventListener('click', function () {
         if (button.classList.contains('redButton')) {
@@ -64,6 +75,10 @@ buttons.forEach(button => {
             setColor('blue');
         } else if (button.classList.contains('greenButton')) {
             setColor('green');
+        } else if (button.classList.contains('eraseButton')) {
+            setColor('erase');
+        } else if (button.classList.contains('clearButton')) {
+            clearCanvas();
         } else {
             setColor('black');
         }
@@ -94,6 +109,8 @@ function changeColor(square) {
         case 'green':
             square.classList.add('hovered-green');
             break;
+        case 'erase':
+            break;
         default:
             square.classList.add('hovered-black');
     }
@@ -116,3 +133,14 @@ newCanvasButton.addEventListener('click', function () {
     }
 
 })
+
+function clearCanvas () {
+    const squares = document.querySelectorAll('.horiDiv');
+
+    squares.forEach(square => {
+        square.classList.remove('hovered-red');
+        square.classList.remove('hovered-blue');
+        square.classList.remove('hovered-green');
+        square.classList.remove('hovered-black');
+    });
+}

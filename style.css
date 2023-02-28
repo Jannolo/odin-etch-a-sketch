@@ -80,6 +80,11 @@ button {
     background-color: green;
 }
 
+.eraseButton, .clearButton {
+    color: black;
+    background-color: white;
+}
+
 .hovered-red {
     background-color: red;
 }
