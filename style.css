@@ -1,0 +1,68 @@
+* {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.mainDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.vertDiv {
+    display: flex;
+    justify-content: space-between;
+    
+    flex: 1 0 0;
+}
+
+.horiDiv {
+    flex: 1 1 0;
+    
+    aspect-ratio: 1/1;
+
+    border: 0.5px solid black;  
+}
+
+#colorSelection {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-around;
+
+    gap: 20px;
+}
+
+button {
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    flex: 0.5 0 0;
+}
+
+.redButton {
+    background-color: red;
+}
+
+.blueButton {
+    background-color: blue;
+}
+
+.greenButton {
+    background-color: green;
+}
+
+.hovered-red {
+    background-color: red;
+}
+
+.hovered-blue {
+    background-color: blue;
+}
+
+.hovered-green {
+    background-color: green;
+}
+
+.hovered-black {
+    background-color: black;
+}
