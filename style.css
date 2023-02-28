@@ -6,6 +6,11 @@ body {
     margin: 0;
     max-height: 100vh;
 
+    
+}
+
+h1 {
+    text-align: center;
 }
 
 
